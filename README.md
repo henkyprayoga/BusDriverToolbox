@@ -39,7 +39,7 @@
 	[         202017]    [         202018]
 	```
 	
-5. You have done it - the engine runs fine! Now, attach an IC of choise to the FDTI-chip and let *BusDriver* hit the road.
+5. You have done it - the engine runs fine! Now, attach an IC of choise to the USB-to-serial converter and let *BusDriver* hit the road.
 
 ## Application Notes
 ### AN_001 *Interfacing MATLAB to ICs via GPIO*
