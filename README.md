@@ -24,19 +24,19 @@ NEXT STOP: *BusDriver* is licensed under BSD 2-Clause License.
 	* 4-channel original [FT4232H mini module](http://www.ftdichip.com/Products/Modules/DevelopmentModules.htm#FT4232H_Mini) (For all those who operate up to 4 ICs in parallel)
 4. Check whether your FTDI-chip is recognised by *BusDriver*	
 		
-```
->> BusDriver.getDevices()
+	```
+	>> BusDriver.getDevices()
+		
+	ans =
 	
-ans =
-
-[              0]    [              1]
-'Dual RS232-HS A'    'Dual RS232-HS B'
-'A'                  'B'              
-[              2]    [              2]
-[              6]    [              6]
-[       67330064]    [       67330064]
-[         202017]    [         202018]
-```
+	[              0]    [              1]
+	'Dual RS232-HS A'    'Dual RS232-HS B'
+	'A'                  'B'              
+	[              2]    [              2]
+	[              6]    [              6]
+	[       67330064]    [       67330064]
+	[         202017]    [         202018]
+	```
 	
 5. You have done it - the engine runs fine! Now, attach an IC of choise to the FDTI-chip and let *BusDriver* hit the road.
 
@@ -44,16 +44,18 @@ ans =
 ### AN_001 *Interfacing MATLAB to ICs via GPIO*
 Ground ADBUS1 (D1) and execute the function *AN_001* as follows
 
+	```
 	>> deviceId = 0;
 	>> AN_001(deviceId)
 	
 	ans =
 	
 	1     0     1     1     1     1     1     1
-
+	```
+	
 And here goes the code ... 
 
-	```Matlab	
+	```
 	% Application Note AN_001, version 1.0.0
 	
 	function levelGet = AN_001(devId)
@@ -82,6 +84,7 @@ And here goes the code ...
 	status = H.close();
 	if status; error(BusDriver.ERROR_CODES{status}); end
 	```
+
 ## Supported USB-to-serial converter
 Any FTDI USB-to-serial converter with one of the follwoing  ICs:
 
