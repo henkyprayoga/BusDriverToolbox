@@ -1,4 +1,5 @@
-**Schedule** – *BusDriver* lets you interface MATLAB® directly to ICs performing analog and digital I/O. You can sense data for analysis and visualisation, generate data for control and test automation or even close the loop by inserting some fancy computations in between. It offers build-in support on high level abstraction for: 
+## Schedule
+*BusDriver* lets you interface MATLAB® directly to ICs performing analog and digital I/O. You can sense data for analysis and visualisation, generate data for control and test automation or even close the loop by inserting some fancy computations in between. It offers build-in support on high level abstraction for: 
 
 * [GPIO](#an_001-interfacing-matlab-to-ics-via-gpio)
 * UART
@@ -42,7 +43,7 @@
 	
 5. You have done it - the engine runs fine! Now, attach an IC of choise to the USB-to-serial converter and let *BusDriver* hit the road.
 
-## Itinerary – On where to go with *BusDriver* 
+## Itinerary – On how to go with *BusDriver* 
 #### AN_001 *Interfacing MATLAB to ICs via GPIO*
 Connect the pins and execute the file *AN_001.m* as follows
 * ADBUS0 (D0) and ADBUS4 (D4)
