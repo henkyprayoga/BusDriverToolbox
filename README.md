@@ -14,7 +14,9 @@ NEXT STOP: *BusDriver* is licensed under BSD 2-Clause License.
 1. Start up MATLAB (Recommended is R2016a, but older versions will probably work fine)
 2. Downlaod and install the *BusDriver*-Library from within MATLAB
 	
-	```>> websave(filename,url)```
+	```matlab
+	>> websave(filename,url)
+	```
 
 3. Plug in a supported USB-to-serial converter, e.g.
 	* 2-channel Mikroelektronika [click USB adapter](http://www.mikroe.com/click/usb-adapter/) (**Recommended due to its superior choice of ready to use [click boards™](http://www.mikroe.com/click/)**)
@@ -24,7 +26,7 @@ NEXT STOP: *BusDriver* is licensed under BSD 2-Clause License.
 	* 4-channel original [FT4232H mini module](http://www.ftdichip.com/Products/Modules/DevelopmentModules.htm#FT4232H_Mini) (For all those who operate up to 4 ICs in parallel)
 4. Check whether your FTDI-chip is recognised by *BusDriver*	
 		
-	```
+	```matlab
 	>> BusDriver.getDevices()
 		
 	ans =
@@ -43,7 +45,7 @@ NEXT STOP: *BusDriver* is licensed under BSD 2-Clause License.
 ## Application Notes
 ### AN_001 *Interfacing MATLAB to ICs via GPIO*
 Ground ADBUS1 (D1) and execute the function *AN_001* as follows
-```
+```matlab
 >> deviceId = 0;
 >> AN_001(deviceId)
 
@@ -53,7 +55,7 @@ ans =
 ```
 	
 And here goes the code ... 
-```
+```matlab
 % Application Note AN_001, version 1.0.0
 
 function levelGet = AN_001(devId)
