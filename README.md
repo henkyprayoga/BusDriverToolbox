@@ -43,7 +43,7 @@
 
 ## Application Notes
 ### AN_001 *Interfacing MATLAB to ICs via GPIO*
-Connect the pins and execute the function *AN_001* as follows
+Connect the pins and execute the file *AN_001.m* as follows
 * ADBUS0 (D0) and ADBUS4 (D4)
 * ADBUS1 (D1) and ADBUS5 (D5)
 * ADBUS2 (D2) and ADBUS6 (D6)
