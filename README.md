@@ -14,7 +14,8 @@ NEXT STOP: *BusDriver* is licensed under BSD 2-Clause License.
 1. Start up MATLAB (Recommended is R2016a, but older versions will probably work fine)
 2. Downlaod and install the *BusDriver*-Library from within MATLAB
 	
-	>> websave(filename,url)		
+	```>> websave(filename,url)```
+
 3. Plug in a supported USB-to-serial converter, e.g.
 	* 2-channel Mikroelektronika [click USB adapter](http://www.mikroe.com/click/usb-adapter/) (**Recommended due to its superior choice of ready to use [click boards™](http://www.mikroe.com/click/)**)
 	* 1-channel Adafruit [FT232H Breakout](https://www.adafruit.com/products/2264) (This board is quite cheep)
@@ -23,18 +24,20 @@ NEXT STOP: *BusDriver* is licensed under BSD 2-Clause License.
 	* 4-channel original [FT4232H mini module](http://www.ftdichip.com/Products/Modules/DevelopmentModules.htm#FT4232H_Mini) (For all those who operate up to 4 ICs in parallel)
 4. Check whether your FTDI-chip is recognised by *BusDriver*	
 		
-	>> BusDriver.getDevices()
-		
-	ans =
-		 
-    	[              0]    [              1]
-    	'Dual RS232-HS A'    'Dual RS232-HS B'
-    	'A'                  'B'              
-    	[              2]    [              2]
-    	[              6]    [              6]
-    	[       67330064]    [       67330064]
-    	[         202017]    [         202018]
+```
+>> BusDriver.getDevices()
+	
+ans =
 
+[              0]    [              1]
+'Dual RS232-HS A'    'Dual RS232-HS B'
+'A'                  'B'              
+[              2]    [              2]
+[              6]    [              6]
+[       67330064]    [       67330064]
+[         202017]    [         202018]
+```
+	
 5. You have done it - the engine runs fine! Now, attach an IC of choise to the FDTI-chip and let *BusDriver* hit the road.
 
 ## Application Notes
