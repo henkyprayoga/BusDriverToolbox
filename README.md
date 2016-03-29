@@ -9,7 +9,7 @@
 
 **Ticket Check** – *BusDriver* is released under commercial and [GNU GPL v.2](https://www.gnu.org/licenses/old-licenses/gpl-2.0.html) open source licenses. Once your project becomes commercialised GPLv2 licensing dictates that you need to either open your source fully or purchase a commercial license. DspKitchen offer commercial licenses without any GPL restrictions. [Contact us for pricing](https://github.com/dspKitchen).
 
-**Next Stop** – Geeting Started with *BusDriver*
+## **Next Stop** – Geeting Started with *BusDriver*
 
 1. Start up MATLAB (Recommended is R2016a, but older versions will probably work fine)
 2. Downlaod and install the *BusDriver* Toolbox from within MATLAB
@@ -42,8 +42,8 @@
 	
 5. You have done it - the engine runs fine! Now, attach an IC of choise to the USB-to-serial converter and let *BusDriver* hit the road.
 
-**Bus Routes** – Application Notes on where to go with *BusDriver*, 
-### AN_001 *Interfacing MATLAB to ICs via GPIO*
+## Itinerary – On where to go with *BusDriver* 
+#### AN_001 *Interfacing MATLAB to ICs via GPIO*
 Connect the pins and execute the file *AN_001.m* as follows
 * ADBUS0 (D0) and ADBUS4 (D4)
 * ADBUS1 (D1) and ADBUS5 (D5)
@@ -119,7 +119,7 @@ status = H.close();
 if status; error(BusDriver.ERROR_CODES{status}); end
 ```
 
-**Under the Hood** – Supported USB-to-serial converter
+## Under the Hood – Supported USB-to-serial converter
 Any FTDI USB-to-serial converter with one of the follwoing  ICs:
 
 * [FT232H](http://www.ftdichip.com/Products/ICs/FT232H.htm), 1-channel 
