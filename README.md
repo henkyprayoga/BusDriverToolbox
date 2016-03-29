@@ -5,11 +5,12 @@
 * SPI
 * I2C
 
-**To shift up a gear** – *BusDriver* supports MATLAB code generation capabilities to get your products real more quickly within a single tool chain. *BusDriver* is your powerfull companion driving you from rapid prototyping to series product development in no time.
+**Shift up a gear** – *BusDriver* supports MATLAB code generation capabilities to get your products real more quickly within a single tool chain. *BusDriver* is your powerfull companion driving you from rapid prototyping to series product development in no time.
 
-**NEXT STOP: Licence Terms** – *BusDriver* is released under commercial and [GNU GPL v.2](https://www.gnu.org/licenses/old-licenses/gpl-2.0.html) open source licenses. Once your project becomes commercialised GPLv2 licensing dictates that you need to either open your source fully or purchase a commercial license. DspKitchen offer commercial licenses without any GPL restrictions. [Contact us for pricing](https://github.com/dspKitchen).
+**Ticket Check** – *BusDriver* is released under commercial and [GNU GPL v.2](https://www.gnu.org/licenses/old-licenses/gpl-2.0.html) open source licenses. Once your project becomes commercialised GPLv2 licensing dictates that you need to either open your source fully or purchase a commercial license. DspKitchen offer commercial licenses without any GPL restrictions. [Contact us for pricing](https://github.com/dspKitchen).
 
-## Geeting Started
+**NEXT STOP: Geeting Started** – Prepare for the *BusDriver* Toolbox
+
 1. Start up MATLAB (Recommended is R2016a, but older versions will probably work fine)
 2. Downlaod and install the *BusDriver* Toolbox from within MATLAB
 
@@ -41,7 +42,7 @@
 	
 5. You have done it - the engine runs fine! Now, attach an IC of choise to the USB-to-serial converter and let *BusDriver* hit the road.
 
-## Application Notes
+**Bus Routes** – Overview on where to go with *BusDriver*
 ### AN_001 *Interfacing MATLAB to ICs via GPIO*
 Connect the pins and execute the file *AN_001.m* as follows
 * ADBUS0 (D0) and ADBUS4 (D4)
