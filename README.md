@@ -18,7 +18,7 @@ NEXT STOP: *BusDriver* is released under [GNU GPL v.2](https://www.gnu.org/licen
 	>> websave(filename,url)
 	```
 	
-3. Plug in a supported USB-to-serial converter, e.g.
+3. Plug in a [supported USB-to-serial converter](#supported-usb-to-serial-converter), e.g.
 	* 2-channel Mikroelektronika [click USB adapter](http://www.mikroe.com/click/usb-adapter/) (**Recommended due to its superior choice of ready to use [click boards™](http://www.mikroe.com/click/)**)
 	* 1-channel Adafruit [FT232H Breakout](https://www.adafruit.com/products/2264) (This board is quite cheep)
 	* 1-channel original [FT232H M232H-B](http://www.ftdichip.com/Products/Modules/DevelopmentModules.htm#UM232H-B) 	
