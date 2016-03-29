@@ -1,4 +1,4 @@
-*BusDriver* lets you interface MATLAB® directly to ICs performing analoge and digital I/O. You can sense data for analysis and visualisation, generate data for control and test automation or even close the loop by inserting some fancy computations in between. It offers build-in support on high level abstraction for: 
+*BusDriver* lets you interface MATLAB® directly to ICs performing analog and digital I/O. You can sense data for analysis and visualisation, generate data for control and test automation or even close the loop by inserting some fancy computations in between. It offers build-in support on high level abstraction for: 
 
 * GPIO
 * UART
@@ -8,7 +8,7 @@
 
 To shift up a gear: *BusDriver* supports MATLAB code generation capabilities to get your products real more quickly within a single tool chain. *BusDriver* is your powerfull companion driving you from rapid prototyping to series product development in no time.
 
-NEXT STOP: *BusDriver* is licensed under BSD 2-Clause License.
+NEXT STOP: *BusDriver* is released under [GNU GPL v.2](https://www.gnu.org/licenses/old-licenses/gpl-2.0.html) open source licenses *and* commercial licenses. Once your project becomes commercialised GPLv2 licensing dictates that you need to either open your source fully or purchase a commercial license. DspKitchen offer commercial licenses without any GPL restrictions. Contact us for pricing.
 
 ## Geeting Started
 1. Start up MATLAB (Recommended is R2016a, but older versions will probably work fine)
