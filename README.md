@@ -11,7 +11,7 @@
 
 ## Geeting Started
 1. Start up MATLAB (Recommended is R2016a, but older versions will probably work fine)
-2. Downlaod and install the *BusDriver*-Library from within MATLAB
+2. Downlaod and install the *BusDriver* Toolbox from within MATLAB
 
 	```
 	>> websave(filename,url)
