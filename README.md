@@ -11,12 +11,12 @@ To shift up a gear: *BusDriver* supports MATLAB code generation capabilities to 
 NEXT STOP: *BusDriver* is licensed under BSD 2-Clause License.
 
 ## Geeting Started
-1. Start up MATLAB (Recommanded is R2016a, but older versions will probably work fine)
+1. Start up MATLAB (Recommended is R2016a, but older versions will probably work fine)
 2. Downlaod and install the *BusDriver*-Library from within MATLAB
 		
 		>> websave(filename,url)		
 3. Plug in a supported USB-to-serial converter, e.g.
-	* 2-channel Mikroelektronika [click USB adapter](http://www.mikroe.com/click/usb-adapter/) (**Recommanded due to its superior choice of ready to use [click boards™](http://www.mikroe.com/click/)**)
+	* 2-channel Mikroelektronika [click USB adapter](http://www.mikroe.com/click/usb-adapter/) (**Recommended due to its superior choice of ready to use [click boards™](http://www.mikroe.com/click/)**)
 	* 1-channel Adafruit [FT232H Breakout](https://www.adafruit.com/products/2264) (This board is quite cheep)
 	* 1-channel original [FT232H M232H-B](http://www.ftdichip.com/Products/Modules/DevelopmentModules.htm#UM232H-B) 	
 	* 2-channel original [FT2232H mini module](http://www.ftdichip.com/Products/Modules/DevelopmentModules.htm#FT2232H_Mini)
@@ -48,7 +48,7 @@ Ground ADBUS1 (D1) and execute the function *AN_001* as follows
 
      1     0     1     1     1     1     1     1
 
-And here is the code ... 
+And here goes the code ... 
 
 	% Application Note AN_001, version 1.0.0
 	
@@ -77,16 +77,6 @@ And here is the code ...
 	%% Close the device and check status
 	status = H.close();
 	if status; error(BusDriver.ERROR_CODES{status}); end
-	
-
-### AN_002 *Interfacing MATLAB to ICs via UART*
-arrival delayed
-
-### AN_003 *Interfacing MATLAB to ICs via SPI*
-arrival delayed
-
-### AN_004 *Interfacing MATLAB to ICs via I2C*
-arrival delayed
 
 ## Supported USB-to-serial converter
 Any FTDI USB-to-serial converter with one of the follwoing  ICs:
