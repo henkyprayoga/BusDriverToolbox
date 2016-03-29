@@ -18,11 +18,11 @@
 	```
 	
 3. Plug in a [supported USB-to-serial converter](#supported-usb-to-serial-converter), e.g.
-	* 2-channel Mikroelektronika [click USB adapter](http://www.mikroe.com/click/usb-adapter/) (**Recommended due to its superior choice of ready to use [click boards™](http://www.mikroe.com/click/)**)
-	* 1-channel Adafruit [FT232H Breakout](https://www.adafruit.com/products/2264) (This board is quite cheep)
-	* 1-channel original [FT232H M232H-B](http://www.ftdichip.com/Products/Modules/DevelopmentModules.htm#UM232H-B) 	
-	* 2-channel original [FT2232H mini module](http://www.ftdichip.com/Products/Modules/DevelopmentModules.htm#FT2232H_Mini)
-	* 4-channel original [FT4232H mini module](http://www.ftdichip.com/Products/Modules/DevelopmentModules.htm#FT4232H_Mini) (For all those who operate up to 4 ICs in parallel)
+	* Mikroelektronika [click USB adapter](http://www.mikroe.com/click/usb-adapter/) (**Recommended** due to its superior choice of ready to use [click boards™](http://www.mikroe.com/click/))
+	* Adafruit [FT232H Breakout](https://www.adafruit.com/products/2264) (**Hint** – This board is quite cheep)
+	* FTDI [FT232H M232H-B](http://www.ftdichip.com/Products/Modules/DevelopmentModules.htm#UM232H-B) 	
+	* FTDI [FT2232H mini module](http://www.ftdichip.com/Products/Modules/DevelopmentModules.htm#FT2232H_Mini)
+	* FTDI [FT4232H mini module](http://www.ftdichip.com/Products/Modules/DevelopmentModules.htm#FT4232H_Mini) (**Hint** – For all those who operate up to 4 ICs in parallel)
 4. Check whether your USB-to-serial converter is recognised by *BusDriver*	
 
 	```
@@ -121,6 +121,6 @@ if status; error(BusDriver.ERROR_CODES{status}); end
 ## Supported USB-to-serial converter
 Any FTDI USB-to-serial converter with one of the follwoing  ICs:
 
-* 1-channel [FT232H](http://www.ftdichip.com/Products/ICs/FT232H.htm)
-* 2-channel [FT2232H](http://www.ftdichip.com/Products/ICs/FT2232H.htm)
-* 4-channel [FT4232H](http://www.ftdichip.com/Products/ICs/FT4232H.htm)
+* [FT232H](http://www.ftdichip.com/Products/ICs/FT232H.htm), 1-channel 
+* [FT2232H](http://www.ftdichip.com/Products/ICs/FT2232H.htm), 2-channels 
+* [FT4232H](http://www.ftdichip.com/Products/ICs/FT4232H.htm), 4-channels
