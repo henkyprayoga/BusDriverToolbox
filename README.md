@@ -1,3 +1,4 @@
+## About
 *BusDriver* lets you interface MATLAB® directly to ICs performing analog and digital I/O. You can sense data for analysis and visualisation, generate data for control and test automation or even close the loop by inserting some fancy computations in between. It offers build-in support on high level abstraction for: 
 
 * [GPIO](#an_001-interfacing-matlab-to-ics-via-gpio)
@@ -8,7 +9,9 @@
 
 To shift up a gear: *BusDriver* supports MATLAB code generation capabilities to get your products real more quickly within a single tool chain. *BusDriver* is your powerfull companion driving you from rapid prototyping to series product development in no time.
 
-NEXT STOP: *BusDriver* is released under [GNU GPL v.2](https://www.gnu.org/licenses/old-licenses/gpl-2.0.html) open source licenses *and* commercial licenses. Once your project becomes commercialised GPLv2 licensing dictates that you need to either open your source fully or purchase a commercial license. DspKitchen offer commercial licenses without any GPL restrictions. [Contact us for pricing](https://github.com/dspKitchen).
+NEXT STOP: Licence Terms.
+
+*BusDriver* is released under commercial and [GNU GPL v.2](https://www.gnu.org/licenses/old-licenses/gpl-2.0.html) open source licenses. Once your project becomes commercialised GPLv2 licensing dictates that you need to either open your source fully or purchase a commercial license. DspKitchen offer commercial licenses without any GPL restrictions. [Contact us for pricing](https://github.com/dspKitchen).
 
 ## Geeting Started
 1. Start up MATLAB (Recommended is R2016a, but older versions will probably work fine)
@@ -66,7 +69,7 @@ And here goes the code ...
 % Application Note AN_001, version 1.0.0
 
 function levelGet = AN_001(devId)
-%% Initialize the Interface
+%% Initialize the interface
 H = HGpio();            % Returns a GPIO object, H, to eighter drive or sense certain I/O-Pins
 H.deviceNumber = devId; % Must be 0 if only one device / channel is attached. Otherwise use 1, 2 etc.
 H.direction = [...      % Sets the direction for (A/B)DBUS 0:7 to either HGpio.IN or HGpio.OUT
@@ -86,7 +89,7 @@ status = H.open();
 if status; error(BusDriver.ERROR_CODES{status}); end
 
 %% Perform write and check status
-levelSet = [...         % Set the level for (A/B)DBUS 0:7 to either HGpio.LOW or HGpio.HIGH.
+levelSet = [...         % Set the level for (A/B)DBUS 0:7 to either HGpio.LOW or HGpio.HIGH
     HGpio.LOW ...       % D0 - Will have no effect, since pin is defined as HGpio.IN
     HGpio.LOW ...       % D1 - Will have no effect, since pin is defined as HGpio.IN
     HGpio.LOW ...       % D2 - Will have no effect, since pin is defined as HGpio.IN
@@ -99,10 +102,11 @@ levelSet = [...         % Set the level for (A/B)DBUS 0:7 to either HGpio.LOW or
 status = H.write(levelSet);
 if status; error(BusDriver.ERROR_CODES{status}); end
 
+%% Perform read and check status - here we will see what was written before due to the hardwired loopback
 [levelGet, status] = H.read();
 if status; error(BusDriver.ERROR_CODES{status}); end
 
-%% Measure execution time
+%% Measure execution time - we are quite snappy with ~125µs transaction time for a single write or read
 tic;
 for i=1:1000; H.write(levelSet); end
 elapsedTimeWrite_s = toc;
