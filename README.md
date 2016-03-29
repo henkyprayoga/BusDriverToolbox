@@ -19,12 +19,12 @@ NEXT STOP: *BusDriver* is released under [GNU GPL v.2](https://www.gnu.org/licen
 	```
 	
 3. Plug in a supported USB-to-serial converter, e.g.
-* 2-channel Mikroelektronika [click USB adapter](http://www.mikroe.com/click/usb-adapter/) (**Recommended due to its superior choice of ready to use [click boards™](http://www.mikroe.com/click/)**)
-* 1-channel Adafruit [FT232H Breakout](https://www.adafruit.com/products/2264) (This board is quite cheep)
-* 1-channel original [FT232H M232H-B](http://www.ftdichip.com/Products/Modules/DevelopmentModules.htm#UM232H-B) 	
-* 2-channel original [FT2232H mini module](http://www.ftdichip.com/Products/Modules/DevelopmentModules.htm#FT2232H_Mini)
-* 4-channel original [FT4232H mini module](http://www.ftdichip.com/Products/Modules/DevelopmentModules.htm#FT4232H_Mini) (For all those who operate up to 4 ICs in parallel)
-4. Check whether your FTDI-chip is recognised by *BusDriver*	
+	* 2-channel Mikroelektronika [click USB adapter](http://www.mikroe.com/click/usb-adapter/) (**Recommended due to its superior choice of ready to use [click boards™](http://www.mikroe.com/click/)**)
+	* 1-channel Adafruit [FT232H Breakout](https://www.adafruit.com/products/2264) (This board is quite cheep)
+	* 1-channel original [FT232H M232H-B](http://www.ftdichip.com/Products/Modules/DevelopmentModules.htm#UM232H-B) 	
+	* 2-channel original [FT2232H mini module](http://www.ftdichip.com/Products/Modules/DevelopmentModules.htm#FT2232H_Mini)
+	* 4-channel original [FT4232H mini module](http://www.ftdichip.com/Products/Modules/DevelopmentModules.htm#FT4232H_Mini) (For all those who operate up to 4 ICs in parallel)
+4. Check whether your USB-to-serial converter is recognised by *BusDriver*	
 
 	```
 	>> BusDriver.getDevices()
