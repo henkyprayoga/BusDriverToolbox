@@ -1,51 +1,32 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
-    <meta charset='utf-8'>
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="viewport" content="width=640">
-
-    <link rel="stylesheet" href="stylesheets/core.css" media="screen">
-    <link rel="stylesheet" href="stylesheets/mobile.css" media="handheld, only screen and (max-device-width:640px)">
-    <link rel="stylesheet" href="stylesheets/github-light.css">
-
-    <script type="text/javascript" src="javascripts/modernizr.js"></script>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script type="text/javascript" src="javascripts/headsmart.min.js"></script>
-    <script type="text/javascript">
-      $(document).ready(function () {
-        $('#main_content').headsmart()
-      })
-    </script>
     <title>BusDriver Toolbox by dspKitchen</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-dark.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
   </head>
-
   <body>
-    <a id="forkme_banner" href="https://github.com/dspKitchen/BusDriverToolbox">View on GitHub</a>
-    <div class="shell">
-
+    <div class="wrapper">
       <header>
-        <span class="ribbon-outer">
-          <span class="ribbon-inner">
-            <h1>BusDriver Toolbox</h1>
-            <h2>IC Communication for MATLAB®</h2>
-          </span>
-          <span class="left-tail"></span>
-          <span class="right-tail"></span>
-        </span>
+        <h1>BusDriver Toolbox</h1>
+        <p>IC Communication for MATLAB®</p>
+        <p class="view"><a href="https://github.com/dspKitchen/BusDriverToolbox">View the Project on GitHub <small>dspKitchen/BusDriverToolbox</small></a></p>
+        <ul>
+          <li><a href="https://github.com/dspKitchen/BusDriverToolbox/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/dspKitchen/BusDriverToolbox/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/dspKitchen/BusDriverToolbox">View On <strong>GitHub</strong></a></li>
+        </ul>
       </header>
-
-      <section id="downloads">
-        <span class="inner">
-          <a href="https://github.com/dspKitchen/BusDriverToolbox/zipball/master" class="zip"><em>download</em> .ZIP</a><a href="https://github.com/dspKitchen/BusDriverToolbox/tarball/master" class="tgz"><em>download</em> .TGZ</a>
-        </span>
-      </section>
-
-
-      <span class="banner-fix"></span>
-
-
-      <section id="main_content">
+      <section>
         <p><em>BusDriver</em> lets you interface MATLAB® directly to ICs performing analoge and digital I/O. You can sense data for analysis and visualisation, generate data for control and test automation or even close the loop by inserting some fancy computations in between. It offers build-in support on high level abstraction for: </p>
 
 <ul>
@@ -64,7 +45,7 @@
 <a id="geeting-started" class="anchor" href="#geeting-started" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Geeting Started</h2>
 
 <ol>
-<li>Start up MATLAB (Recommanded is R2016a, but older versions will probably work fine)</li>
+<li>Start up MATLAB (Recommended is R2016a, but older versions will probably work fine)</li>
 <li>
 <p>Downlaod and install the <em>BusDriver</em>-Library from within MATLAB</p>
 
@@ -74,7 +55,7 @@
 <li>Plug in a supported USB-to-serial converter, e.g.
 
 <ul>
-<li>2-channel Mikroelektronika <a href="http://www.mikroe.com/click/usb-adapter/">click USB adapter</a> (<strong>Recommanded due to its superior choice of ready to use <a href="http://www.mikroe.com/click/">click boards™</a></strong>)</li>
+<li>2-channel Mikroelektronika <a href="http://www.mikroe.com/click/usb-adapter/">click USB adapter</a> (<strong>Recommended due to its superior choice of ready to use <a href="http://www.mikroe.com/click/">click boards™</a></strong>)</li>
 <li>1-channel Adafruit <a href="https://www.adafruit.com/products/2264">FT232H Breakout</a> (This board is quite cheep)</li>
 <li>1-channel original <a href="http://www.ftdichip.com/Products/Modules/DevelopmentModules.htm#UM232H-B">FT232H M232H-B</a><br>
 </li>
@@ -119,7 +100,7 @@ ans =
  1     0     1     1     1     1     1     1
 </code></pre>
 
-<p>And here is the code ... </p>
+<p>And here goes the code ... </p>
 
 <pre><code>% Application Note AN_001, version 1.0.0
 
@@ -150,24 +131,6 @@ status = H.close();
 if status; error(BusDriver.ERROR_CODES{status}); end
 </code></pre>
 
-<h3>
-<a id="an_002-interfacing-matlab-to-ics-via-uart" class="anchor" href="#an_002-interfacing-matlab-to-ics-via-uart" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>AN_002 <em>Interfacing MATLAB to ICs via UART</em>
-</h3>
-
-<p>arrival delayed</p>
-
-<h3>
-<a id="an_003-interfacing-matlab-to-ics-via-spi" class="anchor" href="#an_003-interfacing-matlab-to-ics-via-spi" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>AN_003 <em>Interfacing MATLAB to ICs via SPI</em>
-</h3>
-
-<p>arrival delayed</p>
-
-<h3>
-<a id="an_004-interfacing-matlab-to-ics-via-i2c" class="anchor" href="#an_004-interfacing-matlab-to-ics-via-i2c" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>AN_004 <em>Interfacing MATLAB to ICs via I2C</em>
-</h3>
-
-<p>arrival delayed</p>
-
 <h2>
 <a id="supported-usb-to-serial-converter" class="anchor" href="#supported-usb-to-serial-converter" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Supported USB-to-serial converter</h2>
 
@@ -182,21 +145,12 @@ if status; error(BusDriver.ERROR_CODES{status}); end
 </li>
 </ul>
       </section>
-
-      <footer>
-        <span class="ribbon-outer">
-          <span class="ribbon-inner">
-            <p>this project by <a href="https://github.com/dspKitchen">dspKitchen</a> can be found on <a href="https://github.com/dspKitchen/BusDriverToolbox">GitHub</a></p>
-          </span>
-          <span class="left-tail"></span>
-          <span class="right-tail"></span>
-        </span>
-        <p>Generated with <a href="https://pages.github.com">GitHub Pages</a> using Merlot</p>
-        <span class="octocat"></span>
-      </footer>
-
     </div>
-
+    <footer>
+      <p>Project maintained by <a href="https://github.com/dspKitchen">dspKitchen</a></p>
+      <p>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></p>
+    </footer>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
     
   </body>
 </html>
