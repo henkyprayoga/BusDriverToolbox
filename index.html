@@ -4,29 +4,40 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <title>BusDriver Toolbox by dspKitchen</title>
-
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/github-dark.css">
-    <script src="javascripts/scale.fix.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/respond.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
+    <![endif]-->
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
   </head>
   <body>
+      <div id="header">
+        <nav>
+          <li class="fork"><a href="https://github.com/dspKitchen/BusDriverToolbox">View On GitHub</a></li>
+          <li class="downloads"><a href="https://github.com/dspKitchen/BusDriverToolbox/zipball/master">ZIP</a></li>
+          <li class="downloads"><a href="https://github.com/dspKitchen/BusDriverToolbox/tarball/master">TAR</a></li>
+          <li class="title">DOWNLOADS</li>
+        </nav>
+      </div><!-- end header -->
+
     <div class="wrapper">
-      <header>
-        <h1>BusDriver Toolbox</h1>
-        <p>IC Communication for MATLAB®</p>
-        <p class="view"><a href="https://github.com/dspKitchen/BusDriverToolbox">View the Project on GitHub <small>dspKitchen/BusDriverToolbox</small></a></p>
-        <ul>
-          <li><a href="https://github.com/dspKitchen/BusDriverToolbox/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/dspKitchen/BusDriverToolbox/tarball/master">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="https://github.com/dspKitchen/BusDriverToolbox">View On <strong>GitHub</strong></a></li>
-        </ul>
-      </header>
+
       <section>
+        <div id="title">
+          <h1>BusDriver Toolbox</h1>
+          <p>IC Communication for MATLAB®</p>
+          <hr>
+          <span class="credits left">Project maintained by <a href="https://github.com/dspKitchen">dspKitchen</a></span>
+          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
+        </div>
+
         <p><em>BusDriver</em> lets you interface MATLAB® directly to ICs performing analoge and digital I/O. You can sense data for analysis and visualisation, generate data for control and test automation or even close the loop by inserting some fancy computations in between. It offers build-in support on high level abstraction for: </p>
 
 <ul>
@@ -145,11 +156,8 @@ if status; error(BusDriver.ERROR_CODES{status}); end
 </li>
 </ul>
       </section>
+
     </div>
-    <footer>
-      <p>Project maintained by <a href="https://github.com/dspKitchen">dspKitchen</a></p>
-      <p>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></p>
-    </footer>
     <!--[if !IE]><script>fixScale(document);</script><![endif]-->
     
   </body>
