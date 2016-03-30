@@ -11,11 +11,20 @@
 
 ## **Next Stop** – Geeting Started with *BusDriver*
 
-1. Start up MATLAB (Recommended is R2016a, but older versions will probably work fine)
-2. Downlaod and install the *BusDriver* Toolbox from within MATLAB
+1. Start up MATLAB win64 (Recommended is R2016a, but older versions will probably work fine)
+2. Downlaod and install *BusDriver* Toolbox from within MATLAB command window by executing the following lines of code
 
-	```
-	>> websave(filename,url)
+	```matlab
+	%% Make installation directory
+	installationDirectory = fullfile(pwd, 'BusDriverToolbox');
+	mkdir(installationDirectory)
+
+	%% Download and unzip BusDriver Toolbox
+	urlBusDriver = 'https://github.com/dspKitchen/BusDriverToolbox/archive/master.zip';
+	unzip(urlBusDriver, installationDirectory);
+
+	%% Add BusDriver Toolbox to seach path
+	addpath(installationDirectory);
 	```
 	
 3. Plug in a [supported USB-to-serial converter](#supported-usb-to-serial-converter), e.g.
