@@ -5,7 +5,7 @@
 * SPI,  [AN_003](#an_003-interfacing-matlab-to-ics-via-spi)
 * I2C,  [AN_004](#an_004-interfacing-matlab-to-ics-via-i2c)
 
-**Shift up a gear** – *BusDriver* supports MATLAB code generation capabilities to get your products real more quickly within a single tool chain. *BusDriver* is your powerfull companion driving you from rapid prototyping to series product development in no time.
+**Shift up a Gear** – *BusDriver* supports MATLAB code generation capabilities to get your products real more quickly within a single tool chain. *BusDriver* is your powerfull companion driving you from rapid prototyping to series product development in no time.
 
 **Ticket Check** – *BusDriver* is released under commercial and [GNU GPL v.2](https://www.gnu.org/licenses/old-licenses/gpl-2.0.html) open source licenses. Once your project becomes commercialised GPLv2 licensing dictates that you need to either open your source fully or purchase a commercial license. DspKitchen offer commercial licenses without any GPL restrictions. [Contact us for pricing](https://github.com/dspKitchen).
 
@@ -227,7 +227,7 @@ Elapsed time/s for 1000 reads:  0.65904
 ```
 
 And here goes the code ... 
-```
+```matlab
 % Application Note AN_004, version 1.0.0
 
 function AN_004(devId)
