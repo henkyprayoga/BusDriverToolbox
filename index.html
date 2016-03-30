@@ -36,7 +36,8 @@
 </li>
 <li>SPI,  <a href="#an_003-interfacing-matlab-to-ics-via-spi">AN_003</a>
 </li>
-<li>I2C</li>
+<li>I2C,  <a href="#an_004-interfacing-matlab-to-ics-via-i2c">AN_004</a>
+</li>
 </ul>
 
 <p><strong>Shift up a gear</strong> – <em>BusDriver</em> supports MATLAB code generation capabilities to get your products real more quickly within a single tool chain. <em>BusDriver</em> is your powerfull companion driving you from rapid prototyping to series product development in no time.</p>
@@ -271,6 +272,70 @@ elapsedTimeWrite_s = <span class="pl-k">toc</span>;
 <span class="pl-c">%% Close the device and check status</span>
 status = H.close();
 <span class="pl-k">if</span> status; <span class="pl-k">error</span>(BusDriver.ERROR_CODES{status}); <span class="pl-k">end</span></pre></div>
+
+<h4>
+<a id="an_004-interfacing-matlab-to-ics-via-i2c" class="anchor" href="#an_004-interfacing-matlab-to-ics-via-i2c" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>AN_004 <em>Interfacing MATLAB to ICs via I2C</em>
+</h4>
+
+<p>Connect the pins to a real device (loopback is not possible) and execute the file <em>AN_004.m</em> as follows</p>
+
+<ul>
+<li>ADBUS0 (D0) and Slave IC SCL</li>
+<li>ADBUS1 (D1) and ADBUS2 (D2) and Slave IC SDA</li>
+</ul>
+
+<pre><code>&gt;&gt; deviceId = 0;
+&gt;&gt; AN_004(deviceId)
+   123
+
+Elapsed time/s for 1000 writes: 0.53617
+Elapsed time/s for 1000 reads:  0.65904
+</code></pre>
+
+<p>And here goes the code ... </p>
+
+<pre><code>% Application Note AN_004, version 1.0.0
+
+function AN_004(devId)
+H = HI2cMaster();       % Returns a I2C object, H, to read from and write to
+H.deviceNumber = devId; % Must be 0 if only one device / channel is attached. Otherwise use 1, 2 etc.
+H.slaveAddress7Bit = 64;% Must be the 7Bit I2C-slave address
+H.clock_Hz = 100e3;     % Set clock rate to 100kHz (Normalmode)
+H.timeout_ms = 3000;    % Set the read/write timeout to 3000ms
+
+%% Open the device and check status
+status = H.open();
+if status; error(BusDriver.ERROR_CODES{status}); end
+
+%% Perform write and check status
+register = 0; % arbitrary register
+dataTx = 123; % Dummy data
+status = H.write(register, dataTx);
+if status; error(BusDriver.ERROR_CODES{status}); end
+
+%% Perform read and check status - here we will see what was written before
+numBytesToRead = 1;
+[dataRx, status] = H.read(register, numBytesToRead);
+if status; error(BusDriver.ERROR_CODES{status}); end
+disp(dataRx);
+
+%% Measure execution time - we are quite snappy with ~600µs transaction time for a single write or read
+% Throughput could be further increased by writing/reading multiple bytes at once,
+% when register auto increment is supported by your slave.
+tic;
+for i=1:1000; H.write(register, dataTx); end
+elapsedTimeWrite_s = toc;
+disp(['Elapsed time/s for 1000 writes: ', num2str(elapsedTimeWrite_s)]);
+
+tic;
+for i=1:1000; H.read(register, numBytesToRead); end
+elapsedTimeWrite_s = toc;
+disp(['Elapsed time/s for 1000 reads:  ', num2str(elapsedTimeWrite_s)]);
+
+%% Close the device and check status
+status = H.close();
+if status; error(BusDriver.ERROR_CODES{status}); end
+</code></pre>
 
 <h2>
 <a id="under-the-hood--usb-to-serial-converter" class="anchor" href="#under-the-hood--usb-to-serial-converter" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Under the Hood – USB-to-serial converter</h2>
