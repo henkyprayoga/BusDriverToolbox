@@ -1,6 +1,6 @@
 **Schedule** – *BusDriver* lets you interface MATLAB® directly to ICs performing analog and digital I/O. You can sense data for analysis and visualisation, generate data for control and test automation or even close the loop by inserting some fancy computations in between. It offers build-in support on high level abstraction for: 
 
-* [GPIO](#an_001-interfacing-matlab-to-ics-via-gpio)
+* GPIO, [AN_001](#an_001-interfacing-matlab-to-ics-via-gpio)
 * UART
 * SPI
 * I2C
@@ -119,8 +119,8 @@ status = H.close();
 if status; error(BusDriver.ERROR_CODES{status}); end
 ```
 
-## Under the Hood – Supported USB-to-serial converter
-Any FTDI USB-to-serial converter with one of the follwoing  ICs:
+## Under the Hood – USB-to-serial converter
+Any FTDI USB-to-serial converter with one of the follwoing  ICs is supported by *BusDriver*:
 
 * [FT232H](http://www.ftdichip.com/Products/ICs/FT232H.htm), 1-channel 
 * [FT2232H](http://www.ftdichip.com/Products/ICs/FT2232H.htm), 2-channels 
