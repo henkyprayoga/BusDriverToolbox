@@ -32,7 +32,8 @@
 <ul>
 <li>GPIO, <a href="#an_001-interfacing-matlab-to-ics-via-gpio">AN_001</a>
 </li>
-<li>UART</li>
+<li>UART, <a href="#an_002-interfacing-matlab-to-ics-via-uart">AN_002</a>
+</li>
 <li>SPI</li>
 <li>I2C</li>
 </ul>
@@ -96,10 +97,10 @@ ans =
 <p>Connect the pins and execute the file <em>AN_001.m</em> as follows</p>
 
 <ul>
-<li>ADBUS0 (D0) and ADBUS4 (D4)</li>
-<li>ADBUS1 (D1) and ADBUS5 (D5)</li>
-<li>ADBUS2 (D2) and ADBUS6 (D6)</li>
-<li>ADBUS3 (D3) and ADBUS7 (D7) </li>
+<li>ADBUS0 (D0) and ADBUS4 (D4), notably hardwired loopback of D0 and D4</li>
+<li>ADBUS1 (D1) and ADBUS5 (D5), notably hardwired loopback of D1 and D5</li>
+<li>ADBUS2 (D2) and ADBUS6 (D6), notably hardwired loopback of D2 and D6</li>
+<li>ADBUS3 (D3) and ADBUS7 (D7), notably hardwired loopback of D3 and D7</li>
 </ul>
 
 <pre><code>&gt;&gt; deviceId = 0;
@@ -164,6 +165,56 @@ elapsedTimeWrite_s = <span class="pl-k">toc</span>;
 <span class="pl-k">for</span> <span class="pl-k">i</span>=<span class="pl-c1">1</span>:<span class="pl-c1">1000</span>; H.read(); <span class="pl-k">end</span>
 elapsedTimeWrite_s = <span class="pl-k">toc</span>;
 <span class="pl-k">disp</span>([<span class="pl-s"><span class="pl-pds">'</span>Elapsed time for 1000 reads  /sec = <span class="pl-pds">'</span></span>, <span class="pl-k">num2str</span>(elapsedTimeWrite_s)]);
+
+<span class="pl-c">%% Close the device and check status</span>
+status = H.close();
+<span class="pl-k">if</span> status; <span class="pl-k">error</span>(BusDriver.ERROR_CODES{status}); <span class="pl-k">end</span></pre></div>
+
+<h4>
+<a id="an_001-interfacing-matlab-to-ics-via-uart" class="anchor" href="#an_001-interfacing-matlab-to-ics-via-uart" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>AN_001 <em>Interfacing MATLAB to ICs via UART</em>
+</h4>
+
+<p>Connect the pins and execute the file <em>AN_002.m</em> as follows</p>
+
+<ul>
+<li>ADBUS0 (D0) and ADBUS1 (D1), notably hardwired loopback of RX and TX</li>
+</ul>
+
+<pre><code>&gt;&gt; deviceId = 0;
+&gt;&gt; AN_002(deviceId)
+Hello BusDriver!
+Elapsed time for loop around 1.0240 Mbyte = 0.97171
+</code></pre>
+
+<p>And here goes the code ... </p>
+
+<div class="highlight highlight-source-matlab"><pre><span class="pl-c">% Application Note AN_002, version 1.0.0</span>
+
+<span class="pl-k">function</span> <span class="pl-en">AN_002</span>(<span class="pl-v">devId</span>)
+<span class="pl-c">%% Initialize the interface</span>
+H = HUart();            <span class="pl-c">% Returns a GPIO object, H, to read and write via UART</span>
+H.deviceNumber = devId; <span class="pl-c">% Must be 0 if only one device / channel is attached. Otherwise use 1, 2 etc.</span>
+H.clock_Hz = <span class="pl-c1">12e6</span>;      <span class="pl-c">% HINT - Baudrate 12MHz is the unique feature compared to virtual com port!</span>
+
+<span class="pl-c">%% Open the device and check status</span>
+status = H.open();
+<span class="pl-k">if</span> status; <span class="pl-k">error</span>(BusDriver.ERROR_CODES{status}); <span class="pl-k">end</span>
+
+<span class="pl-c">%% Perform write/read and check status</span>
+dataTx = <span class="pl-s"><span class="pl-pds">'</span>Hello BusDriver!<span class="pl-pds">'</span></span>;
+[dataRx, status] = H.writeRead(dataTx);
+<span class="pl-k">if</span> status; <span class="pl-k">error</span>(BusDriver.ERROR_CODES{status}); <span class="pl-k">end</span>
+
+<span class="pl-k">disp</span>(<span class="pl-k">char</span>(<span class="pl-k">dataRx'</span>))
+
+<span class="pl-c">%% Measure bandwidth - we reach ~1 MByte/s</span>
+dataTx = <span class="pl-k">round</span>(<span class="pl-k">rand</span>(<span class="pl-c1">10240</span>, <span class="pl-c1">1</span>)*<span class="pl-c1">255</span>);
+
+<span class="pl-k">tic</span>;
+<span class="pl-k">for</span> idx = <span class="pl-c1">1</span>:<span class="pl-c1">100</span>; H.writeRead(dataTx); <span class="pl-k">end</span>
+elapsedTimeWrite_s = <span class="pl-k">toc</span>;
+
+<span class="pl-k">disp</span>([<span class="pl-s"><span class="pl-pds">'</span>Elapsed time for trasnfering 1.0240 Mbyte = <span class="pl-pds">'</span></span>, <span class="pl-k">num2str</span>(elapsedTimeWrite_s)]);
 
 <span class="pl-c">%% Close the device and check status</span>
 status = H.close();
