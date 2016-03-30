@@ -1,4 +1,4 @@
-% Application Note AN_001, version 1.0.0
+% Application Note AN_001, version 1.0.1
 
 function levelGet = AN_001(devId)
 %% Initialize the interface
@@ -42,12 +42,12 @@ if status; error(BusDriver.ERROR_CODES{status}); end
 tic;
 for i=1:1000; H.write(levelSet); end
 elapsedTimeWrite_s = toc;
-disp(['Elapsed time for 1000 writes /sec = ', num2str(elapsedTimeWrite_s)]);
+disp(['Elapsed time/s for 1000 writes: ', num2str(elapsedTimeWrite_s)]);
 
 tic;
 for i=1:1000; H.read(); end
 elapsedTimeWrite_s = toc;
-disp(['Elapsed time for 1000 reads  /sec = ', num2str(elapsedTimeWrite_s)]);
+disp(['Elapsed time/s for 1000 reads:  ', num2str(elapsedTimeWrite_s)]);
 
 %% Close the device and check status
 status = H.close();
