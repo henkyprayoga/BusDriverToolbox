@@ -166,7 +166,7 @@ if status; error(BusDriver.ERROR_CODES{status}); end
 ```
 
 #### AN_003 *Interfacing MATLAB to ICs via SPI*
-Connect the pins and execute the file *AN_002.m* as follows
+Connect the pins and execute the file *AN_003.m* as follows
 * ADBUS1 (D1) and ADBUS2 (D2), notably hardwired loopback of MISO and MOSI
 
 ```
