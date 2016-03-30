@@ -1,7 +1,7 @@
 **Schedule** – *BusDriver* lets you interface MATLAB® directly to ICs performing analog and digital I/O. You can sense data for analysis and visualisation, generate data for control and test automation or even close the loop by inserting some fancy computations in between. It offers build-in support on high level abstraction for: 
 
 * GPIO, [AN_001](#an_001-interfacing-matlab-to-ics-via-gpio)
-* UART
+* UART, [AN_002](#an_002-interfacing-matlab-to-ics-via-uart)
 * SPI
 * I2C
 
@@ -45,10 +45,10 @@
 ## Itinerary – On how to go with *BusDriver* 
 #### AN_001 *Interfacing MATLAB to ICs via GPIO*
 Connect the pins and execute the file *AN_001.m* as follows
-* ADBUS0 (D0) and ADBUS4 (D4)
-* ADBUS1 (D1) and ADBUS5 (D5)
-* ADBUS2 (D2) and ADBUS6 (D6)
-* ADBUS3 (D3) and ADBUS7 (D7) 
+* ADBUS0 (D0) and ADBUS4 (D4), notably hardwired loopback of D0 and D4
+* ADBUS1 (D1) and ADBUS5 (D5), notably hardwired loopback of D1 and D5
+* ADBUS2 (D2) and ADBUS6 (D6), notably hardwired loopback of D2 and D6
+* ADBUS3 (D3) and ADBUS7 (D7), notably hardwired loopback of D3 and D7
 
 ```
 >> deviceId = 0;
@@ -113,6 +113,52 @@ tic;
 for i=1:1000; H.read(); end
 elapsedTimeWrite_s = toc;
 disp(['Elapsed time for 1000 reads  /sec = ', num2str(elapsedTimeWrite_s)]);
+
+%% Close the device and check status
+status = H.close();
+if status; error(BusDriver.ERROR_CODES{status}); end
+```
+
+#### AN_001 *Interfacing MATLAB to ICs via UART*
+Connect the pins and execute the file *AN_002.m* as follows
+* ADBUS0 (D0) and ADBUS1 (D1), notably hardwired loopback of RX and TX
+
+```
+>> deviceId = 0;
+>> AN_002(deviceId)
+Hello BusDriver!
+Elapsed time for loop around 1.0240 Mbyte = 0.97171
+```
+And here goes the code ... 
+
+```matlab
+% Application Note AN_002, version 1.0.0
+
+function AN_002(devId)
+%% Initialize the interface
+H = HUart();            % Returns a GPIO object, H, to read and write via UART
+H.deviceNumber = devId; % Must be 0 if only one device / channel is attached. Otherwise use 1, 2 etc.
+H.clock_Hz = 12e6;      % HINT - Baudrate 12MHz is the unique feature compared to virtual com port!
+    
+%% Open the device and check status
+status = H.open();
+if status; error(BusDriver.ERROR_CODES{status}); end
+
+%% Perform write/read and check status
+dataTx = 'Hello BusDriver!';
+[dataRx, status] = H.writeRead(dataTx);
+if status; error(BusDriver.ERROR_CODES{status}); end
+
+disp(char(dataRx'))
+
+%% Measure bandwidth - we reach ~1 MByte/s
+dataTx = round(rand(10240, 1)*255);
+
+tic;
+for idx = 1:100; H.writeRead(dataTx); end
+elapsedTimeWrite_s = toc;
+
+disp(['Elapsed time for trasnfering 1.0240 Mbyte = ', num2str(elapsedTimeWrite_s)]);
 
 %% Close the device and check status
 status = H.close();
