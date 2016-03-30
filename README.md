@@ -119,7 +119,7 @@ status = H.close();
 if status; error(BusDriver.ERROR_CODES{status}); end
 ```
 
-#### AN_001 *Interfacing MATLAB to ICs via UART*
+#### AN_002 *Interfacing MATLAB to ICs via UART*
 Connect the pins and execute the file *AN_002.m* as follows
 * ADBUS0 (D0) and ADBUS1 (D1), notably hardwired loopback of RX and TX
 
