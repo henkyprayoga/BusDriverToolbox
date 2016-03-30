@@ -40,7 +40,7 @@
 </li>
 </ul>
 
-<p><strong>Shift up a gear</strong> – <em>BusDriver</em> supports MATLAB code generation capabilities to get your products real more quickly within a single tool chain. <em>BusDriver</em> is your powerfull companion driving you from rapid prototyping to series product development in no time.</p>
+<p><strong>Shift up a Gear</strong> – <em>BusDriver</em> supports MATLAB code generation capabilities to get your products real more quickly within a single tool chain. <em>BusDriver</em> is your powerfull companion driving you from rapid prototyping to series product development in no time.</p>
 
 <p><strong>Ticket Check</strong> – <em>BusDriver</em> is released under commercial and <a href="https://www.gnu.org/licenses/old-licenses/gpl-2.0.html">GNU GPL v.2</a> open source licenses. Once your project becomes commercialised GPLv2 licensing dictates that you need to either open your source fully or purchase a commercial license. DspKitchen offer commercial licenses without any GPL restrictions. <a href="https://github.com/dspKitchen">Contact us for pricing</a>.</p>
 
@@ -294,48 +294,47 @@ Elapsed time/s for 1000 reads:  0.65904
 
 <p>And here goes the code ... </p>
 
-<pre><code>% Application Note AN_004, version 1.0.0
+<div class="highlight highlight-source-matlab"><pre><span class="pl-c">% Application Note AN_004, version 1.0.0</span>
 
-function AN_004(devId)
-H = HI2cMaster();       % Returns a I2C object, H, to read from and write to
-H.deviceNumber = devId; % Must be 0 if only one device / channel is attached. Otherwise use 1, 2 etc.
-H.slaveAddress7Bit = 64;% Must be the 7Bit I2C-slave address
-H.clock_Hz = 100e3;     % Set clock rate to 100kHz (Normalmode)
-H.timeout_ms = 3000;    % Set the read/write timeout to 3000ms
+<span class="pl-k">function</span> <span class="pl-en">AN_004</span>(<span class="pl-v">devId</span>)
+H = HI2cMaster();       <span class="pl-c">% Returns a I2C object, H, to read from and write to</span>
+H.deviceNumber = devId; <span class="pl-c">% Must be 0 if only one device / channel is attached. Otherwise use 1, 2 etc.</span>
+H.slaveAddress7Bit = <span class="pl-c1">64</span>;<span class="pl-c">% Must be the 7Bit I2C-slave address</span>
+H.clock_Hz = <span class="pl-c1">100e3</span>;     <span class="pl-c">% Set clock rate to 100kHz (Normalmode)</span>
+H.timeout_ms = <span class="pl-c1">3000</span>;    <span class="pl-c">% Set the read/write timeout to 3000ms</span>
 
-%% Open the device and check status
+<span class="pl-c">%% Open the device and check status</span>
 status = H.open();
-if status; error(BusDriver.ERROR_CODES{status}); end
+<span class="pl-k">if</span> status; <span class="pl-k">error</span>(BusDriver.ERROR_CODES{status}); <span class="pl-k">end</span>
 
-%% Perform write and check status
-register = 0; % arbitrary register
-dataTx = 123; % Dummy data
-status = H.write(register, dataTx);
-if status; error(BusDriver.ERROR_CODES{status}); end
+<span class="pl-c">%% Perform write and check status</span>
+<span class="pl-c1">register</span> = <span class="pl-c1">0</span>; <span class="pl-c">% arbitrary register</span>
+dataTx = <span class="pl-c1">123</span>; <span class="pl-c">% Dummy data</span>
+status = H.write(<span class="pl-c1">register</span>, dataTx);
+<span class="pl-k">if</span> status; <span class="pl-k">error</span>(BusDriver.ERROR_CODES{status}); <span class="pl-k">end</span>
 
-%% Perform read and check status - here we will see what was written before
-numBytesToRead = 1;
-[dataRx, status] = H.read(register, numBytesToRead);
-if status; error(BusDriver.ERROR_CODES{status}); end
-disp(dataRx);
+<span class="pl-c">%% Perform read and check status - here we will see what was written before</span>
+numBytesToRead = <span class="pl-c1">1</span>;
+[dataRx, status] = H.read(<span class="pl-c1">register</span>, numBytesToRead);
+<span class="pl-k">if</span> status; <span class="pl-k">error</span>(BusDriver.ERROR_CODES{status}); <span class="pl-k">end</span>
+<span class="pl-k">disp</span>(dataRx);
 
-%% Measure execution time - we are quite snappy with ~600µs transaction time for a single write or read
-% Throughput could be further increased by writing/reading multiple bytes at once,
-% when register auto increment is supported by your slave.
-tic;
-for i=1:1000; H.write(register, dataTx); end
-elapsedTimeWrite_s = toc;
-disp(['Elapsed time/s for 1000 writes: ', num2str(elapsedTimeWrite_s)]);
+<span class="pl-c">%% Measure execution time - we are quite snappy with ~600µs transaction time for a single write or read</span>
+<span class="pl-c">% Throughput could be further increased by writing/reading multiple bytes at once,</span>
+<span class="pl-c">% when register auto increment is supported by your slave.</span>
+<span class="pl-k">tic</span>;
+<span class="pl-k">for</span> <span class="pl-k">i</span>=<span class="pl-c1">1</span>:<span class="pl-c1">1000</span>; H.write(<span class="pl-c1">register</span>, dataTx); <span class="pl-k">end</span>
+elapsedTimeWrite_s = <span class="pl-k">toc</span>;
+<span class="pl-k">disp</span>([<span class="pl-s"><span class="pl-pds">'</span>Elapsed time/s for 1000 writes: <span class="pl-pds">'</span></span>, <span class="pl-k">num2str</span>(elapsedTimeWrite_s)]);
 
-tic;
-for i=1:1000; H.read(register, numBytesToRead); end
-elapsedTimeWrite_s = toc;
-disp(['Elapsed time/s for 1000 reads:  ', num2str(elapsedTimeWrite_s)]);
+<span class="pl-k">tic</span>;
+<span class="pl-k">for</span> <span class="pl-k">i</span>=<span class="pl-c1">1</span>:<span class="pl-c1">1000</span>; H.read(<span class="pl-c1">register</span>, numBytesToRead); <span class="pl-k">end</span>
+elapsedTimeWrite_s = <span class="pl-k">toc</span>;
+<span class="pl-k">disp</span>([<span class="pl-s"><span class="pl-pds">'</span>Elapsed time/s for 1000 reads:  <span class="pl-pds">'</span></span>, <span class="pl-k">num2str</span>(elapsedTimeWrite_s)]);
 
-%% Close the device and check status
+<span class="pl-c">%% Close the device and check status</span>
 status = H.close();
-if status; error(BusDriver.ERROR_CODES{status}); end
-</code></pre>
+<span class="pl-k">if</span> status; <span class="pl-k">error</span>(BusDriver.ERROR_CODES{status}); <span class="pl-k">end</span></pre></div>
 
 <h2>
 <a id="under-the-hood--usb-to-serial-converter" class="anchor" href="#under-the-hood--usb-to-serial-converter" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Under the Hood – USB-to-serial converter</h2>
