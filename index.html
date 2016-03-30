@@ -30,7 +30,8 @@
         <p><strong>Schedule</strong> – <em>BusDriver</em> lets you interface MATLAB® directly to ICs performing analog and digital I/O. You can sense data for analysis and visualisation, generate data for control and test automation or even close the loop by inserting some fancy computations in between. It offers build-in support on high level abstraction for: </p>
 
 <ul>
-<li><a href="#an_001-interfacing-matlab-to-ics-via-gpio">GPIO</a></li>
+<li>GPIO, <a href="#an_001-interfacing-matlab-to-ics-via-gpio">AN_001</a>
+</li>
 <li>UART</li>
 <li>SPI</li>
 <li>I2C</li>
@@ -169,9 +170,9 @@ status = H.close();
 <span class="pl-k">if</span> status; <span class="pl-k">error</span>(BusDriver.ERROR_CODES{status}); <span class="pl-k">end</span></pre></div>
 
 <h2>
-<a id="under-the-hood--supported-usb-to-serial-converter" class="anchor" href="#under-the-hood--supported-usb-to-serial-converter" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Under the Hood – Supported USB-to-serial converter</h2>
+<a id="under-the-hood--usb-to-serial-converter" class="anchor" href="#under-the-hood--usb-to-serial-converter" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Under the Hood – USB-to-serial converter</h2>
 
-<p>Any FTDI USB-to-serial converter with one of the follwoing  ICs:</p>
+<p>Any FTDI USB-to-serial converter with one of the follwoing  ICs is supported by <em>BusDriver</em>:</p>
 
 <ul>
 <li>
