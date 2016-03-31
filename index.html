@@ -53,16 +53,12 @@
 <li>
 <p>Downlaod and install <em>BusDriver</em> Toolbox from within MATLAB command window by executing the following lines of code</p>
 
-<div class="highlight highlight-source-matlab"><pre><span class="pl-c">%% Make installation directory</span>
-installationDirectory = <span class="pl-k">fullfile</span>(<span class="pl-k">pwd</span>, <span class="pl-s"><span class="pl-pds">'</span>BusDriverToolbox<span class="pl-pds">'</span></span>);
-<span class="pl-k">mkdir</span>(installationDirectory)
-
-<span class="pl-c">%% Download and unzip BusDriver Toolbox</span>
+<div class="highlight highlight-source-matlab"><pre><span class="pl-c">%% Download and unzip BusDriver Toolbox to " .\BusDriverToolbox-master\"</span>
 urlBusDriver = <span class="pl-s"><span class="pl-pds">'</span>https://github.com/dspKitchen/BusDriverToolbox/archive/master.zip<span class="pl-pds">'</span></span>;
-<span class="pl-k">unzip</span>(urlBusDriver, installationDirectory);
+<span class="pl-k">unzip</span>(urlBusDriver, <span class="pl-k">pwd</span>);
 
 <span class="pl-c">%% Add BusDriver Toolbox to seach path</span>
-<span class="pl-k">addpath</span>(installationDirectory);</pre></div>
+<span class="pl-k">addpath</span>(<span class="pl-k">genpath</span>(<span class="pl-s"><span class="pl-pds">'</span>.\BusDriverToolbox-master\<span class="pl-pds">'</span></span>));</pre></div>
 </li>
 <li>
 <p>Plug in a <a href="#supported-usb-to-serial-converter">supported USB-to-serial converter</a>, e.g.</p>
