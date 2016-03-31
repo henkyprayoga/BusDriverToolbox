@@ -80,17 +80,17 @@ urlBusDriver = <span class="pl-s"><span class="pl-pds">'</span>https://github.co
 <li>
 <p>Check whether your USB-to-serial converter is recognised by <em>BusDriver</em>  </p>
 
-<pre><code>&gt;&gt; BusDriver.getDevices()
+<pre><code>&gt;&gt; deviceTable = BusDriver.getDevices()
+deviceTable = 
+            Description       SerialNumber    Flag    Type       ID       LocationID
+         _________________    ____________    ____    ____    ________    __________
 
-ans =
+    0    'Dual RS232-HS A'    'A'             2       6       67330064    202017    
+    1    'Dual RS232-HS B'    'B'             2       6       67330064    202018    
 
-[              0]    [              1]
-'Dual RS232-HS A'    'Dual RS232-HS B'
-'A'                  'B'              
-[              2]    [              2]
-[              6]    [              6]
-[       67330064]    [       67330064]
-[         202017]    [         202018]
+&gt;&gt; deviceNumber = BusDriver.getDeviceNumber('Dual RS232-HS A')
+deviceNumber =
+     0
 </code></pre>
 </li>
 <li><p>You have done it - the engine runs fine! Now, attach an IC of choise to the USB-to-serial converter and let <em>BusDriver</em> hit the road.</p></li>
